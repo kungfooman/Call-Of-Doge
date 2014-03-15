@@ -11,12 +11,12 @@ end
 
 function Usermessage(name)
 	if isDefined(usermessage_id_to_name[name]) then
-		print("Usermessage is already transmitted!\n");
+		--print("Usermessage is already transmitted!\n");
 		return
 	end
 	usermessage_id_to_name[name] = count(usermessage_id_to_name)
 	id = usermessage_id_to_name[name]
-	print(string.format("Cmd=%s ID=%d\n", name, id))
+	--print(string.format("Cmd=%s ID=%d\n", name, id))
 	
 	table.insert(
 		usercommands_1,
@@ -31,7 +31,7 @@ end
 function Msg(name, callback)
 	id = usermessage_id_to_name[name]
 	if not isDefined(id) then
-		print(string.format("Usermessage Unknown ID for name=%s is not transmitted!\n", name))
+		--print(string.format("Usermessage Unknown ID for name=%s is not transmitted!\n", name))
 		return
 	end
 
@@ -57,7 +57,7 @@ function CL_ParseUsermessage_1(msg)
 	usermessage_id = ffi.C.MSG_ReadLong(msg);
 	usermessage_name = ffi.C.MSG_ReadString(msg);
 	client_usermessage_id_to_name[usermessage_id] = ffi.string(usermessage_name)
-	print(string.format("usermessage[%d] = %s\n", usermessage_id, ffi.string(usermessage_name)))
+	--print(string.format("usermessage[%d] = %s\n", usermessage_id, ffi.string(usermessage_name)))
 end
 
 function CL_ParseUsermessage_2(msg)
@@ -73,7 +73,7 @@ function CL_ParseUsermessage_2(msg)
 			print("No hook found for ", cmdname, "\n")
 		end
 	else
-		print(string.format("Got message for: id=%d", usermessage_id))
+		--print(string.format("Got message for: id=%d", usermessage_id))
 	end
 end
 function CL_ParseUsermessage_3(msg) end

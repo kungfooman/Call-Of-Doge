@@ -42,7 +42,7 @@ function include_noerror(filename)
 end
 
 function refresh()
-	include("CallOfDuty\\lua\\main.lua")
+	include("lua\\main.lua")
 end
 
 function main()
