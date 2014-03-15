@@ -2,6 +2,7 @@ ffi = require "ffi"
 
 include_noerror("CallOfDuty\\lua\\header_scr.lua")
 include_noerror("CallOfDuty\\lua\\header_MSG.lua")
+include_noerror("CallOfDuty\\lua\\header_cvar.lua")
 include("CallOfDuty\\lua\\php.lua")
 include("CallOfDuty\\lua\\codscript.lua")
 include("CallOfDuty\\lua\\usermessage.lua")
@@ -10,7 +11,7 @@ include("CallOfDuty\\lua\\client_console.lua")
 print("=== Init Lua For Call of Duty ===\n")
 
 function refresh()
-	dofile("CallOfDuty\\main.lua")
+	dofile("CallOfDuty\\lua\\main.lua")
 end
 
 function Cbuf_AddText(text)
