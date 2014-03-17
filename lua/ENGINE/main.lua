@@ -42,7 +42,7 @@ function include_noerror(filename)
 end
 
 function refresh()
-	include("lua\\main.lua")
+	include("lua\\ENGINE\\main.lua")
 end
 
 function main()

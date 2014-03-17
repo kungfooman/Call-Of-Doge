@@ -12,3 +12,7 @@ end
 
 print("=== Init Lua For GAME ===\n")
 print("fs_game: ", getCvar("fs_game"), "\n")
+
+function PmoveSingle(pm)
+	return 0 -- processed
+end
