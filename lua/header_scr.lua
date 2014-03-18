@@ -10,7 +10,7 @@ ffi.cdef [[
 
 	typedef int		qhandle_t;
 	typedef int		sfxHandle_t;
-	typedef int		fileHandle_t;
+	//typedef int		fileHandle_t;
 	typedef int		clipHandle_t;
 
 	void	SCR_Init (void);
