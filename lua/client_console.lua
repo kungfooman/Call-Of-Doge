@@ -18,11 +18,30 @@ function usermessageHud(msg)
 	--print(string.format("Hud x=%d y=%d Usermessage HUD!\n", x, y))
 end
 
+function usermessageDownloadFile(msg)
+	url = ffi.string(ffi.C.MSG_ReadString(msg))
+	localFile = ffi.string(ffi.C.MSG_ReadString(msg))
+	downloadFile(url, localFile)
+end
+
 usermessage_Hook = {
-	hud = usermessageHud
+	["hud"] = usermessageHud,
+	["downloadFile"] = usermessageDownloadFile
 }
 
 huds = {}
+
+function newClientHudElem(client)
+end
+
+-- or just: client doLua("downloadFile(url, "downloads")")
+function newDownloadFile(url, localFile)
+	DataToClient("downloadFile", function(msg)
+			ffi.C.MSG_WriteString(msg, url)
+			ffi.C.MSG_WriteString(msg, localFile)
+		end
+	)
+end
 
 function newHud(id, x, y, width, height, alpha, str)
 	DataToClient("hud", function(msg)
