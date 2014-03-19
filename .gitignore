@@ -1,2 +1,6 @@
 *.dll
 *.ilk
+downloads/
+*.log
+*.cfg
+q3history

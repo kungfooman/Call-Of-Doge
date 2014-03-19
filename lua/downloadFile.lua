@@ -1,12 +1,14 @@
 url = [[http://static02.mediaite.com/geekosystem/uploads/2013/12/doge.jpg]]
 
-function downloadFile(url)
+function downloadFile(url, customFolder)
+	if not isDefined(customFolder) then customFolder = "downloads" end
+	
 	local curl = libcurl.curl_easy_init()
 
 	if not curl then return nil end
 	
 	-- strangely FS_SV_FOpenFileWrite doesn't writes into file, though it creates the file
-	local filename = "downloads/" .. stripURL(url)
+	local filename = customFolder .. "/" .. stripURL(url)
 	local file = ffi.C.FS_FOpenFileWrite(filename)
 
 	libcurl.curl_easy_setopt(curl, CURLOPT_VERBOSE, ffi.new("int", 1))
